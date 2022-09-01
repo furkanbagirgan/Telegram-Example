@@ -21,14 +21,14 @@ const Contacts = ({navigation}) => {
         name={name}
         image={item.image}
         userName={item.userName}
-        handlePress={() => goToChatDetail(item.userName, name)}
+        handlePress={() => goToChatDetail(item, name, 'contacts')}
       />
     );
   };
 
   //Here is the function that allows switching to the chat screen when each chatCard component is clicked.
-  const goToChatDetail = (receiver, chatName) => {
-    navigation.navigate('Chat', {receiver, chatName});
+  const goToChatDetail = (receiver, chatName, type) => {
+    navigation.navigate('Chat', {receiver, chatName, type});
   };
 
   //Here is the function that creates a line to appear between the areas to repeat in the flatlist.

@@ -124,11 +124,10 @@ const Navigation = () => {
             headerTintColor: 'white',
             headerTitle: route.params.chatName,
             headerShadowVisible: false,
-            headerTitleStyle: {fontSize: 16},
             headerBackVisible: true,
             headerLeft: () => (
               <Image
-                source={{uri: route.params.chat.image}}
+                source={{uri: route.params.receiver.image}}
                 style={styles.image}
               />
             ),
@@ -154,7 +153,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     marginLeft: -20,
-    marginRight: 5,
+    marginRight: 10,
   },
 });
 

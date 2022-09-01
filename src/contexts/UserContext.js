@@ -7,11 +7,10 @@ const UserProvider = ({children}) => {
   const [currentUser, setCurrentUser] = useState({});
   const [chatList, setChatList] = useState([
     {
-      receiver: 'mehmet08',
+      receiver: {firstName: 'Mehmet', lastName: 'Kaya', userName: 'mehmet08', image: 'https://picsum.photos/id/1005/60'},
       sender: 'furkanbrgn',
-      image: 'https://picsum.photos/id/1005/60',
       messageList: [
-        {sender: 'furkanbrgn', datetime: '2022-09-01T11:35:00', message: 'Naber :)'},
+        {sender:'itself', datetime: '2022-09-01T11:35:00', message: 'Naber :)'},
         {sender:'mehmet08',datetime:'2022-09-01T11:36:00',message:'İyidir'},
       ],
     },
