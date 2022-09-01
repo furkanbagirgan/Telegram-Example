@@ -3,11 +3,18 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#179CDE',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 25
+  },
+  header:{
+    color: 'white',
+    fontSize: 50,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
+    marginBottom: 20
   },
   rowContent: {
     width: '100%',
@@ -20,10 +27,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#8C8C8C',
-    borderRadius: 25,
+    height: 45,
+    borderRadius: 20,
+    backgroundColor: 'white'
   },
   picker:{
     width: 150,

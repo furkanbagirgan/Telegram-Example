@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
-import {SafeAreaView,View} from 'react-native';
+import {SafeAreaView,View,Text} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 import styles from './Login.style';
-import Input from '../../components/Input'
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 import CountryCodes from '../../CountryCodes.json';
 
 const Login = () => {
@@ -13,15 +14,19 @@ const Login = () => {
   const [lastName,setLastName]=useState('');
   const [userName,setUserName]=useState('');
 
+  const login=()=>{
+
+  }
+
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.header}>Telegram</Text>
       <View style={styles.rowContent}>
         <View style={styles.pickerWrapper}>
           <Picker
             selectedValue={selectedPhoneCode}
             style={styles.picker}
             dropdownIconColor='#8C8C8C'
-            mode='dropdown'
             onValueChange={(itemValue, itemPosition) =>
               setSelectedPhoneCode(itemValue)
             }>
@@ -31,16 +36,15 @@ const Login = () => {
           </Picker>
         </View>
         <View style={styles.phoneWrapper}>
-          <Input placeholder="Phone Number" value={phoneNumber} onChangeText={setPhoneNumber} keyboardType='numeric'/>
+          <Input placeholder='Phone Number' placeholderTextColor='#8C8C8C' value={phoneNumber} iconName='phone' onChangeText={setPhoneNumber} keyboardType='numeric'/>
         </View>
       </View>
-      <Input placeholder="First Name" placeholderTextColor='#8C8C8C' value={firstName} iconName="phone" onChangeText={setFirstName}/>
-      <Input placeholder="Last Name" placeholderTextColor='#8C8C8C' value={lastName} iconName="phone" onChangeText={setLastName}/>
-      <Input placeholder="User Name" placeholderTextColor='#8C8C8C' value={userName} iconName="phone" onChangeText={setUserName}/>
+      <Input placeholder='First Name' placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
+      <Input placeholder='Last Name' placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
+      <Input placeholder='User Name' placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
+      <Button title='Giriş Yap' onClick={login}/>
     </SafeAreaView>
   );
 };
-
-//<Button title="Giriş Yap" onClick={login} theme="secondary" loading={loading}/>
 
 export default Login;
