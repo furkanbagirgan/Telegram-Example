@@ -1,4 +1,5 @@
-import React, {useContext, createContext, useState} from 'react';
+import React, {useContext, createContext, useState, useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const UserContext = createContext();
 
@@ -20,6 +21,24 @@ const UserProvider = ({children}) => {
     {id: '2', firstName: 'Deniz', lastName: 'Bulut', userName: '_denizbul', image: 'https://picsum.photos/id/101/60'},
     {id: '3', firstName: 'Ömer', lastName: 'Sayan', userName: 'omer04say', image: 'https://picsum.photos/id/1006/60'},
   ];
+
+  const getUserValue = async () => {
+    try {
+      const value = await AsyncStorage.getItem('userValue');
+      if(value !== null) {
+        const userValue=JSON.parse(value);
+        setCurrentUser({
+          ...userValue
+        })
+      }
+    } catch(e) {
+      console.log('Storage Read Error')
+    }
+  }
+
+  useEffect(()=>{
+    getUserValue();
+  },[]);
 
   return (
     <UserContext.Provider

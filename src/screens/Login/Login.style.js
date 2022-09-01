@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   picker:{
     width: 150,
-    color: '#8C8C8C',
+    color: 'black',
   },
   phoneWrapper: {
     flex: 10

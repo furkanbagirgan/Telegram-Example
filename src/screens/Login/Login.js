@@ -1,11 +1,13 @@
 import React,{useState} from 'react';
 import {SafeAreaView,View,Text} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Login.style';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import CountryCodes from '../../CountryCodes.json';
+import { useUser } from '../../contexts/UserContext';
 
 const Login = () => {
   const [selectedPhoneCode, setSelectedPhoneCode] = useState('+90');
@@ -13,9 +15,26 @@ const Login = () => {
   const [firstName,setFirstName]=useState('');
   const [lastName,setLastName]=useState('');
   const [userName,setUserName]=useState('');
+  const {setCurrentUser} = useUser();
 
-  const login=()=>{
-
+  const login= async ()=>{
+    try {
+      const userValue = JSON.stringify({
+        phoneNumber:selectedPhoneCode+phoneNumber,
+        firstName,
+        lastName,
+        userName,
+      });
+      await AsyncStorage.setItem('userValue', userValue);
+      setCurrentUser({
+        phoneNumber:selectedPhoneCode+phoneNumber,
+        firstName,
+        lastName,
+        userName,
+      });
+    } catch (error) {
+      console.log('Storage Write Error');
+    }
   }
 
   return (
