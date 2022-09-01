@@ -2,7 +2,7 @@ import React from 'react';
 import { View,TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import styles from "./Input.style";
+import styles from './Input.style';
 
 function Input(props) {
   return (
