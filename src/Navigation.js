@@ -29,19 +29,20 @@ const Navigation = () => {
             let iconSize;
             if (route.name === 'Contacts') {
               iconName = 'account-circle';
-              iconSize= 30;
+              iconSize = 30;
             } else if (route.name === 'Messages') {
               iconName = 'wechat';
-              iconSize= 35;
-            } else if (route.name === 'Settings') {
+              iconSize = 35;
+            } else if (route.name === 'SettingsStack') {
               iconName = 'cog';
-              iconSize= 30;
+              iconSize = 30;
             }
 
             // You can return any component that you like here!
             return <Icon name={iconName} size={iconSize} color={color} />;
           },
-          headerShown: false,
+          headerStyle: {backgroundColor: '#0088CC'},
+          headerTintColor: 'white',
           tabBarActiveTintColor: '#333',
           tabBarInactiveTintColor: 'white',
           tabBarActiveBackgroundColor: '#0088CC',
@@ -50,7 +51,11 @@ const Navigation = () => {
         })}>
         <Tab.Screen name='Contacts' component={Contacts} />
         <Tab.Screen name='Messages' component={Messages} />
-        <Tab.Screen name='Settings' component={SettingsStack} />
+        <Tab.Screen
+          name='SettingsStack'
+          component={SettingsStack}
+          options={{headerShown: false}}
+        />
       </Tab.Navigator>
     );
   };
@@ -138,7 +143,7 @@ const Navigation = () => {
 
   return (
     <NavigationContainer>
-      {currentUser.userName? <ContentStack /> : <AuthStack />}
+      {currentUser.userName ? <ContentStack /> : <AuthStack />}
     </NavigationContainer>
   );
 };
