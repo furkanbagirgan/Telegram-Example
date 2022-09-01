@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView,FlatList} from 'react-native';
+import {SafeAreaView,FlatList,View} from 'react-native';
 import { useUser } from '../../contexts/UserContext';
 
 import styles from './Contacts.style';

@@ -18,7 +18,7 @@ const ContactCard = ({name, image, userName, handlePress}) => {
         </View>
         <View style={styles.chatWrapper}>
           <Text style={styles.receiver}>{name}</Text>
-          <Text style={styles.userName}>{userName}</Text>
+          <Text style={styles.userName}>{'@'+userName}</Text>
         </View>
       </View>
     </TouchableHighlight>

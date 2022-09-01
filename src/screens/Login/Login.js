@@ -25,7 +25,7 @@ const Login = () => {
         lastName,
         userName,
       });
-      await AsyncStorage.setItem('userValue', userValue);
+      await AsyncStorage.setItem('@userValue', userValue);
       setCurrentUser({
         phoneNumber:selectedPhoneCode+phoneNumber,
         firstName,

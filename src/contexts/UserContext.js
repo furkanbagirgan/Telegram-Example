@@ -24,7 +24,7 @@ const UserProvider = ({children}) => {
 
   const getUserValue = async () => {
     try {
-      const value = await AsyncStorage.getItem('userValue');
+      const value = await AsyncStorage.getItem('@userValue');
       if(value !== null) {
         const userValue=JSON.parse(value);
         setCurrentUser({
