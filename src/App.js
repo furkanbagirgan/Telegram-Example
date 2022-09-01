@@ -1,23 +1,13 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { UserProvider } from './contexts/UserContext';
+import Navigation from './Navigation';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>App.js</Text>
-    </SafeAreaView>
+    <UserProvider>
+      <Navigation />
+    </UserProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'gray'
-  },
-});
 
 export default App;
