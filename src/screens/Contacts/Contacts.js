@@ -3,7 +3,7 @@ import {SafeAreaView,FlatList} from 'react-native';
 import { useUser } from '../../contexts/UserContext';
 
 import styles from './Contacts.style';
-import ChatCard from '../../components/ChatCard';
+import ContactCard from '../../components/ContactCard';
 
 const Contacts = ({navigation}) => {
   const {contactList}=useUser();
@@ -17,7 +17,7 @@ const Contacts = ({navigation}) => {
   const renderItem = ({item}) => {
     const name = item.firstName + ' ' + item.lastName;
     return (
-      <ChatCard
+      <ContactCard
         name={name}
         image={item.image}
         userName={item.userName}
