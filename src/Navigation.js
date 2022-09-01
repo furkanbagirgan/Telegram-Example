@@ -26,26 +26,31 @@ const Navigation = () => {
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
+            let iconSize;
             if (route.name === 'Contacts') {
-              iconName = focused ? 'food' : 'food-outline';
+              iconName = 'account-circle';
+              iconSize= 30;
             } else if (route.name === 'Messages') {
-              iconName = focused ? 'heart-multiple' : 'heart-multiple-outline';
+              iconName = 'wechat';
+              iconSize= 35;
             } else if (route.name === 'Settings') {
-              iconName = focused ? 'account-circle' : 'account-circle-outline';
+              iconName = 'cog';
+              iconSize= 30;
             }
 
             // You can return any component that you like here!
-            return <Icon name={iconName} size={size} color={color} />;
+            return <Icon name={iconName} size={iconSize} color={color} />;
           },
           headerShown: false,
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: '#333',
           tabBarInactiveTintColor: 'white',
           tabBarActiveBackgroundColor: '#0088CC',
           tabBarInactiveBackgroundColor: '#0088CC',
+          tabBarShowLabel: false,
         })}>
-        <Tab.Screen name="Contacts" component={Contacts} />
-        <Tab.Screen name="Messages" component={Messages} />
-        <Tab.Screen name="SettingsStack" component={SettingsStack} />
+        <Tab.Screen name='Contacts' component={Contacts} />
+        <Tab.Screen name='Messages' component={Messages} />
+        <Tab.Screen name='Settings' component={SettingsStack} />
       </Tab.Navigator>
     );
   };
@@ -54,25 +59,31 @@ const Navigation = () => {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="Settings"
+          name='Settings'
           component={Settings}
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="Theme"
+          name='Theme'
           component={Theme}
-          options={{
-            headerShown: false,
-          }}
+          options={({route}) => ({
+            headerStyle: {backgroundColor: '#0088CC'},
+            headerTintColor: 'white',
+            headerTitle: 'Select Theme',
+            headerShadowVisible: false,
+          })}
         />
         <Stack.Screen
-          name="Profile"
+          name='Profile'
           component={Profile}
-          options={{
-            headerShown: false,
-          }}
+          options={({route}) => ({
+            headerStyle: {backgroundColor: '#0088CC'},
+            headerTintColor: 'white',
+            headerTitle: 'Edit Profile',
+            headerShadowVisible: false,
+          })}
         />
       </Stack.Navigator>
     );
@@ -82,7 +93,7 @@ const Navigation = () => {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="Login"
+          name='Login'
           component={Login}
           options={{
             headerShown: false,
@@ -96,15 +107,15 @@ const Navigation = () => {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="Tabs"
+          name='Tabs'
           component={Tabs}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="Chat"
+          name='Chat'
           component={Chat}
           options={({route}) => ({
-            headerStyle: {backgroundColor: '#128C7E'},
+            headerStyle: {backgroundColor: '#0088CC'},
             headerTintColor: 'white',
             headerTitle: route.params.chatName,
             headerShadowVisible: false,
@@ -117,7 +128,7 @@ const Navigation = () => {
               />
             ),
             headerRight: () => (
-              <Icon name="dots-vertical" size={25} color="white" />
+              <Icon name='dots-vertical' size={25} color='white' />
             ),
           })}
         />
