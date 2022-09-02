@@ -8,7 +8,7 @@ In this assignment, an application with user login and messaging was developed b
 - React Native Picker
 - React Native Moment
 
-## Light Screens
+## Screens
 <div>
 <kbd><img src="screenshots/lightContacts.jpg" width="250"></kbd>
 <kbd><img src="screenshots/lightMessages.jpg" width="250"></kbd>
