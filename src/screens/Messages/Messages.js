@@ -7,6 +7,7 @@ import styles from './Messages.style';
 import ChatCard from '../../components/ChatCard';
 
 const Messages = ({navigation}) => {
+  //Necessary context data and states are created.
   const {chatList}=useUser();
   const {theme}=useTheme();
 
@@ -39,7 +40,7 @@ const Messages = ({navigation}) => {
     return <View style={styles.divider} />;
   };
 
-  //Here, the tabBar component and flatlist that will appear on the screen are created.
+  //Here, the flatlist that will appear on the screen are created.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList

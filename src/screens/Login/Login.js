@@ -11,6 +11,7 @@ import { useUser } from '../../contexts/UserContext';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Login = () => {
+  //Necessary context data and states are created.
   const [selectedPhoneCode, setSelectedPhoneCode] = useState('+90');
   const [phoneNumber,setPhoneNumber]=useState('');
   const [firstName,setFirstName]=useState('');
@@ -19,6 +20,7 @@ const Login = () => {
   const {setCurrentUser} = useUser();
   const {theme}=useTheme();
 
+  //The user data entered here and the initial theme are saved to the contexts and storage.
   const login= async ()=>{
     try {
       const userValue = JSON.stringify({
@@ -40,6 +42,7 @@ const Login = () => {
     }
   }
 
+  //Here, inputs for user data and button are pressed to the screen.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <Text style={styles.header}>Telegram</Text>

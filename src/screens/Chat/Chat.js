@@ -10,13 +10,15 @@ import Message from '../../components/Message';
 import moment from 'moment';
 
 const Chat = ({route}) => {
-  //Here, the parameters from the home screen are taken by route and assigned to the objects.
+  //Necessary context data and states are created.
   const {receiver,type} = route.params;
   const {currentUser,chatList,setChatList}=useUser();
   const {theme}=useTheme();
   const [message,setMessage]=useState('');
   const [list,setList]=useState([]);
 
+  //Here, the messages belonging to the receiver that come as a parameter in the chatList on
+  //the context are checked and thrown into the list state.
   useEffect(()=>{
     let messages={};
     chatList.forEach((value,index)=>{
@@ -33,14 +35,15 @@ const Chat = ({route}) => {
   };
 
   //Here, there is a function that adjusts how the areas to be repeated in the
-  //flatlist will appear on the screen. Also, a MessageCard component is created for each message.
+  //flatlist will appear on the screen. Also, a Message component is created for each message.
   const renderItem = ({item}) => {
     return <Message message={item} />;
   };
 
+  //A new message or an additional message to the existing one is created and saved in the context,
+  //depending on which page it came from.
   const sendMessage=()=>{
     if(type==='messages' || typeof list !== "undefined"){
-      console.log('heyy');
       const newChatList=chatList.map((value,index)=>{
         if(value.receiver.userName!==receiver.userName){
           return value;

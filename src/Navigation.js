@@ -14,16 +14,20 @@ import Profile from './screens/Profile';
 import Settings from './screens/Settings';
 import Theme from './screens/Theme';
 
+//
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
+  //The current user information is accessed with the useUser hook.
   const {currentUser} = useUser();
 
+  //Here, the tabs required for the bottom navigation are created and the necessary settings are made.
   const Tabs = () => {
     return (
       <Tab.Navigator
         screenOptions={({route}) => ({
+          //Here the tabBar icon is set according to the page name.
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
             let iconSize;
@@ -38,7 +42,6 @@ const Navigation = () => {
               iconSize = 30;
             }
 
-            // You can return any component that you like here!
             return <Icon name={iconName} size={iconSize} color={color} />;
           },
           headerStyle: {backgroundColor: '#0088CC'},
@@ -60,6 +63,7 @@ const Navigation = () => {
     );
   };
 
+  //It is the navigation structure that will be shown in case there is no entry yet.
   const AuthStack = () => {
     return (
       <Stack.Navigator>
@@ -74,6 +78,7 @@ const Navigation = () => {
     );
   };
 
+  //It is the navigation structure that will be displayed when the login is still made.
   const ContentStack = () => {
     return (
       <Stack.Navigator>
@@ -126,6 +131,7 @@ const Navigation = () => {
     );
   };
 
+  //Here, the appropriate navigation structure is displayed on the screen according to the user input status.
   return (
     <NavigationContainer>
       {currentUser.userName ? <ContentStack /> : <AuthStack />}
@@ -133,6 +139,7 @@ const Navigation = () => {
   );
 };
 
+//Here is the required style for the image to be displayed in the header of the chat screen.
 const styles = StyleSheet.create({
   image: {
     width: 32,

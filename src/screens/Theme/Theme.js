@@ -6,8 +6,10 @@ import styles from './Theme.style';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Theme = () => {
+  //Necessary context data and states are created.
   const {theme,setTheme}=useTheme();
 
+  //Here, the existing theme is changed according to the clicked theme.
   const changeTheme=async(theme)=>{
     try {
       await AsyncStorage.removeItem('@themeValue');
@@ -18,6 +20,7 @@ const Theme = () => {
     }
   }
 
+  //Here, 2 themes and their names are printed on the screen.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <View style={styles.themeWrapper}>

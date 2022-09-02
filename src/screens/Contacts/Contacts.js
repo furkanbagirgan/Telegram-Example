@@ -7,6 +7,7 @@ import styles from './Contacts.style';
 import ContactCard from '../../components/ContactCard';
 
 const Contacts = ({navigation}) => {
+  //Necessary context data and states are created.
   const {contactList}=useUser();
   const {theme}=useTheme();
 
@@ -15,7 +16,7 @@ const Contacts = ({navigation}) => {
   };
 
   //Here, there is a function that adjusts how the areas to be repeated in the
-  //flatlist will appear on the screen. Also, a chatCard component is created for each chat.
+  //flatlist will appear on the screen. Also, a contactCard component is created for each chat.
   const renderItem = ({item}) => {
     const name = item.firstName + ' ' + item.lastName;
     return (
@@ -29,7 +30,7 @@ const Contacts = ({navigation}) => {
     );
   };
 
-  //Here is the function that allows switching to the chat screen when each chatCard component is clicked.
+  //Here is the function that allows switching to the chat screen when each contactCard component is clicked.
   const goToChatDetail = (receiver, chatName, type) => {
     navigation.navigate('Chat', {receiver, chatName, type});
   };
@@ -39,7 +40,7 @@ const Contacts = ({navigation}) => {
     return <View style={styles.divider} />;
   };
 
-  //Here, the tabBar component and flatlist that will appear on the screen are created.
+  //Here, the flatlist that will appear on the screen are created.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList

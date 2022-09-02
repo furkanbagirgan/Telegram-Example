@@ -9,12 +9,14 @@ import { useUser } from '../../contexts/UserContext';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Profile = () => {
+  //Necessary context data and states are created.
   const {currentUser,setCurrentUser} = useUser();
   const {theme}=useTheme();
   const [firstName,setFirstName]=useState(currentUser.firstName);
   const [lastName,setLastName]=useState(currentUser.lastName);
   const [userName,setUserName]=useState(currentUser.userName);
 
+  //Changed user data here is updated via context and storage.
   const save= async ()=>{
     try {
       const userValue = JSON.stringify({
@@ -35,6 +37,7 @@ const Profile = () => {
     }
   }
 
+  //Here, the inputs to update the user data and the save button are pressed on the screen.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <Input placeholder='First Name' theme={theme} placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>

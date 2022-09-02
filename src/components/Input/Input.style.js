@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 
+//Here the styles of the input are created.
 const styles = StyleSheet.create({
   lightContainer: {
     width: '100%',

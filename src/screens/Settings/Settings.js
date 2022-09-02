@@ -8,17 +8,21 @@ import { useUser } from '../../contexts/UserContext';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const Settings = ({navigation}) => {
+  //Necessary context data and states are created.
   const {setCurrentUser}=useUser();
   const {theme}=useTheme();
 
+  //Here is the transition to the theme page.
   const goTheme=()=>{
     navigation.navigate('Theme');
   }
 
+  //Here is the transition to the profile page.
   const goEditProfile=()=>{
     navigation.navigate('Profile');
   }
 
+  //Here, user data is deleted via context and storage.
   const logOut=async()=>{
     try {
       await AsyncStorage.removeItem('@userValue');
@@ -29,6 +33,7 @@ const Settings = ({navigation}) => {
     }
   }
 
+  //Here, the user picture, logout button and buttons that switch to other pages are printed on the screen.
   return (
     <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <View style={styles.imageWrapper}>

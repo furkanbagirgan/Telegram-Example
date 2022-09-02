@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 
+//Here the styles of the login screen are created.
 const styles = StyleSheet.create({
   lightContainer: {
     flex: 1,

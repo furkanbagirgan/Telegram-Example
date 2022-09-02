@@ -1,5 +1,6 @@
 import {Dimensions,StyleSheet} from 'react-native';
 
+//Here the styles of the messages screen are created.
 const styles = StyleSheet.create({
   lightContainer: {
     flex: 1,

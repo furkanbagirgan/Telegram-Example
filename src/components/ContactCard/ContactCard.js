@@ -9,7 +9,7 @@ const ContactCard = ({name, image, userName, handlePress, theme}) => {
   moment.locale('tr');
 
   //Here, the incoming name is displayed on the screen together
-  //with the image of that name and the date of the last message.
+  //with the image of that name and the userName.
   return (
     <TouchableHighlight onPress={handlePress} underlayColor="#eee">
       <View style={styles.container}>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+//Here the styles of the button are created.
 const styles=StyleSheet.create({
   container: {
     width: '100%',
