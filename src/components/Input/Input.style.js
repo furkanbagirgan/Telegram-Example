@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#8C8C8C',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   darkContainer: {
     width: '100%',
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 1,
     borderColor: 'white',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  input:{
+  input: {
     marginLeft: 5,
     flex: 1,
     color: '#000',
-  }
+  },
 });
 
 export default styles;

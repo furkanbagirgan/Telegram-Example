@@ -18,14 +18,23 @@ const ChatCard = ({name, image, lastMessage, handlePress, theme}) => {
         </View>
         <View style={styles.chatWrapper}>
           <View style={styles.receiverWrapper}>
-            <Text style={theme==='light' ? styles.lightReceiver : styles.darkReceiver}>{name}</Text>
-            <Text style={theme==='light' ? styles.lightDate : styles.darkDate}>
+            <Text
+              style={
+                theme === 'light' ? styles.lightReceiver : styles.darkReceiver
+              }>
+              {name}
+            </Text>
+            <Text
+              style={theme === 'light' ? styles.lightDate : styles.darkDate}>
               {moment().day() === moment(lastMessage.datetime).day()
                 ? moment(lastMessage.datetime).format('hh:mm')
                 : moment(lastMessage.datetime).format('DD/MM/YYYY')}
             </Text>
           </View>
-          <Text style={theme==='light' ? styles.lightMessage : styles.darkMessage}>
+          <Text
+            style={
+              theme === 'light' ? styles.lightMessage : styles.darkMessage
+            }>
             {lastMessage.sender === 'itself'
               ? 'Ben:' + lastMessage.message
               : lastMessage.message}

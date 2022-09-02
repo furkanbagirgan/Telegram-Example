@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 25
+    paddingHorizontal: 25,
   },
   darkContainer: {
     flex: 1,
@@ -16,22 +16,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 25
+    paddingHorizontal: 25,
   },
-  header:{
+  header: {
     color: 'white',
     fontSize: 50,
     fontWeight: 'bold',
     alignSelf: 'flex-start',
-    marginBottom: 20
+    marginBottom: 20,
   },
   rowContent: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  lightPickerWrapper:{
+  lightPickerWrapper: {
     flex: 8,
     marginRight: 10,
     justifyContent: 'center',
@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: '#8C8C8C',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  darkPickerWrapper:{
+  darkPickerWrapper: {
     flex: 8,
     marginRight: 10,
     justifyContent: 'center',
@@ -51,15 +51,15 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: 'white',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
-  picker:{
+  picker: {
     width: 150,
     color: 'black',
   },
   phoneWrapper: {
-    flex: 10
-  }
+    flex: 10,
+  },
 });
 
 export default styles;

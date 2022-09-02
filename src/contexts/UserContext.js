@@ -8,31 +8,55 @@ const UserProvider = ({children}) => {
   const [currentUser, setCurrentUser] = useState({});
   const [chatList, setChatList] = useState([]);
   const contactList = [
-    {id: '1', firstName: 'Mehmet', lastName: 'Kaya', userName: 'mehmet08', image: 'https://picsum.photos/id/1005/60'},
-    {id: '2', firstName: 'Deniz', lastName: 'Bulut', userName: '_denizbul', image: 'https://picsum.photos/id/101/60'},
-    {id: '3', firstName: 'Ömer', lastName: 'Sayan', userName: 'omer04say', image: 'https://picsum.photos/id/1006/60'},
-    {id: '4', firstName: 'Sena', lastName: 'Demir', userName: 'lemina45', image: 'https://picsum.photos/id/1009/60'},
+    {
+      id: '1',
+      firstName: 'Mehmet',
+      lastName: 'Kaya',
+      userName: 'mehmet08',
+      image: 'https://picsum.photos/id/1005/60',
+    },
+    {
+      id: '2',
+      firstName: 'Deniz',
+      lastName: 'Bulut',
+      userName: '_denizbul',
+      image: 'https://picsum.photos/id/101/60',
+    },
+    {
+      id: '3',
+      firstName: 'Ömer',
+      lastName: 'Sayan',
+      userName: 'omer04say',
+      image: 'https://picsum.photos/id/1006/60',
+    },
+    {
+      id: '4',
+      firstName: 'Sena',
+      lastName: 'Demir',
+      userName: 'lemina45',
+      image: 'https://picsum.photos/id/1009/60',
+    },
   ];
 
   //With this function, it is checked whether a user has logged in before by connecting to the storage.
   const getUserValue = async () => {
     try {
       const value = await AsyncStorage.getItem('@userValue');
-      if(value !== null) {
-        const userValue=JSON.parse(value);
+      if (value !== null) {
+        const userValue = JSON.parse(value);
         setCurrentUser({
-          ...userValue
-        })
+          ...userValue,
+        });
       }
-    } catch(e) {
-      console.log('Storage Read Error')
+    } catch (e) {
+      console.log('Storage Read Error');
     }
-  }
+  };
 
   //The getUserValue function is made to run when the application first starts.
-  useEffect(()=>{
+  useEffect(() => {
     getUserValue();
-  },[]);
+  }, []);
 
   //The data kept in the context with the Provider is opened to the outside.
   return (

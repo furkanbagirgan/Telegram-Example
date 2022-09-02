@@ -52,10 +52,10 @@ const Navigation = () => {
           tabBarInactiveBackgroundColor: '#0088CC',
           tabBarShowLabel: false,
         })}>
-        <Tab.Screen name='Contacts' component={Contacts} />
-        <Tab.Screen name='Messages' component={Messages} />
+        <Tab.Screen name="Contacts" component={Contacts} />
+        <Tab.Screen name="Messages" component={Messages} />
         <Tab.Screen
-          name='Settings'
+          name="Settings"
           component={Settings}
           options={{headerShown: false}}
         />
@@ -68,7 +68,7 @@ const Navigation = () => {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name='Login'
+          name="Login"
           component={Login}
           options={{
             headerShown: false,
@@ -83,12 +83,12 @@ const Navigation = () => {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name='Tabs'
+          name="Tabs"
           component={Tabs}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name='Chat'
+          name="Chat"
           component={Chat}
           options={({route}) => ({
             headerStyle: {backgroundColor: '#0088CC'},
@@ -103,12 +103,12 @@ const Navigation = () => {
               />
             ),
             headerRight: () => (
-              <Icon name='dots-vertical' size={25} color='white' />
+              <Icon name="dots-vertical" size={25} color="white" />
             ),
           })}
         />
         <Stack.Screen
-          name='Theme'
+          name="Theme"
           component={Theme}
           options={({route}) => ({
             headerStyle: {backgroundColor: '#0088CC'},
@@ -118,7 +118,7 @@ const Navigation = () => {
           })}
         />
         <Stack.Screen
-          name='Profile'
+          name="Profile"
           component={Profile}
           options={({route}) => ({
             headerStyle: {backgroundColor: '#0088CC'},

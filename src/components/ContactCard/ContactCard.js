@@ -17,8 +17,18 @@ const ContactCard = ({name, image, userName, handlePress, theme}) => {
           <Image source={{uri: image}} style={styles.image} />
         </View>
         <View style={styles.chatWrapper}>
-          <Text style={theme==='light' ? styles.lightReceiver : styles.darkReceiver}>{name}</Text>
-          <Text style={theme==='light' ? styles.lightUserName : styles.darkUserName}>{'@'+userName}</Text>
+          <Text
+            style={
+              theme === 'light' ? styles.lightReceiver : styles.darkReceiver
+            }>
+            {name}
+          </Text>
+          <Text
+            style={
+              theme === 'light' ? styles.lightUserName : styles.darkUserName
+            }>
+            {'@' + userName}
+          </Text>
         </View>
       </View>
     </TouchableHighlight>

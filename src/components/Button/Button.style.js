@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 //Here the styles of the button are created.
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 45,
@@ -14,11 +14,11 @@ const styles=StyleSheet.create({
     borderColor: '#8C8C8C',
     backgroundColor: 'white',
   },
-  title:{
+  title: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'black'
-  }
+    color: 'black',
+  },
 });
 
 export default styles;

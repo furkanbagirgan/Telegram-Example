@@ -11,19 +11,19 @@ const ThemeProvider = ({children}) => {
   const getThemeValue = async () => {
     try {
       const value = await AsyncStorage.getItem('@themeValue');
-      if(value !== null) {
-        const themeValue=JSON.parse(value);
+      if (value !== null) {
+        const themeValue = JSON.parse(value);
         setTheme(themeValue);
       }
-    } catch(e) {
-      console.log('Storage Read Error')
+    } catch (e) {
+      console.log('Storage Read Error');
     }
-  }
+  };
 
   //The getThemeValue function is made to run when the application first starts.
-  useEffect(()=>{
+  useEffect(() => {
     getThemeValue();
-  },[]);
+  }, []);
 
   //The data kept in the context with the Provider is opened to the outside.
   return (

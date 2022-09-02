@@ -1,23 +1,23 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './Profile.style';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { useUser } from '../../contexts/UserContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import {useUser} from '../../contexts/UserContext';
+import {useTheme} from '../../contexts/ThemeContext';
 
 const Profile = () => {
   //Necessary context data and states are created.
-  const {currentUser,setCurrentUser} = useUser();
-  const {theme}=useTheme();
-  const [firstName,setFirstName]=useState(currentUser.firstName);
-  const [lastName,setLastName]=useState(currentUser.lastName);
-  const [userName,setUserName]=useState(currentUser.userName);
+  const {currentUser, setCurrentUser} = useUser();
+  const {theme} = useTheme();
+  const [firstName, setFirstName] = useState(currentUser.firstName);
+  const [lastName, setLastName] = useState(currentUser.lastName);
+  const [userName, setUserName] = useState(currentUser.userName);
 
   //Changed user data here is updated via context and storage.
-  const save= async ()=>{
+  const save = async () => {
     try {
       const userValue = JSON.stringify({
         ...currentUser,
@@ -35,15 +35,37 @@ const Profile = () => {
     } catch (error) {
       console.log('Storage Write Error');
     }
-  }
+  };
 
   //Here, the inputs to update the user data and the save button are pressed on the screen.
   return (
-    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
-      <Input placeholder='First Name' theme={theme} placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
-      <Input placeholder='Last Name' theme={theme} placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
-      <Input placeholder='User Name' theme={theme} placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
-      <Button title='Save' onClick={save}/>
+    <SafeAreaView
+      style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
+      <Input
+        placeholder="First Name"
+        theme={theme}
+        placeholderTextColor="#8C8C8C"
+        value={firstName}
+        iconName="account-details"
+        onChangeText={setFirstName}
+      />
+      <Input
+        placeholder="Last Name"
+        theme={theme}
+        placeholderTextColor="#8C8C8C"
+        value={lastName}
+        iconName="account-details"
+        onChangeText={setLastName}
+      />
+      <Input
+        placeholder="User Name"
+        theme={theme}
+        placeholderTextColor="#8C8C8C"
+        value={userName}
+        iconName="account-box"
+        onChangeText={setUserName}
+      />
+      <Button title="Save" onClick={save} />
     </SafeAreaView>
   );
 };

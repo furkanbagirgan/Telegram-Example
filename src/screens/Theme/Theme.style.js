@@ -16,36 +16,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  themeWrapper:{
-    flexDirection:'column',
+  themeWrapper: {
+    flexDirection: 'column',
     alignItems: 'center',
   },
-  lightTheme:{
+  lightTheme: {
     width: 125,
     height: 125,
-    backgroundColor:'#eee',
-    borderRadius:25,
+    backgroundColor: '#eee',
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#8C8C8C'
+    borderColor: '#8C8C8C',
   },
-  darkTheme:{
+  darkTheme: {
     width: 125,
     height: 125,
-    backgroundColor:'black',
-    borderRadius:25,
+    backgroundColor: 'black',
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#8C8C8C'
+    borderColor: '#8C8C8C',
   },
-  lightThemeText:{
+  lightThemeText: {
     marginTop: 10,
-    color:'black',
-    fontSize: 16
+    color: 'black',
+    fontSize: 16,
   },
-  darkThemeText:{
+  darkThemeText: {
     marginTop: 10,
-    color:'white',
-    fontSize: 16
-  }
+    color: 'white',
+    fontSize: 16,
+  },
 });
 
 export default styles;

@@ -1,17 +1,17 @@
 import React from 'react';
-import {SafeAreaView,FlatList,View} from 'react-native';
+import {SafeAreaView, FlatList, View} from 'react-native';
 
-import { useUser } from '../../contexts/UserContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import {useUser} from '../../contexts/UserContext';
+import {useTheme} from '../../contexts/ThemeContext';
 import styles from './Messages.style';
 import ChatCard from '../../components/ChatCard';
 
 const Messages = ({navigation}) => {
   //Necessary context data and states are created.
-  const {chatList}=useUser();
-  const {theme}=useTheme();
+  const {chatList} = useUser();
+  const {theme} = useTheme();
 
-  const keyExtractor = (item,index) => {
+  const keyExtractor = (item, index) => {
     return String(index);
   };
 
@@ -42,7 +42,8 @@ const Messages = ({navigation}) => {
 
   //Here, the flatlist that will appear on the screen are created.
   return (
-    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
+    <SafeAreaView
+      style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList
         keyExtractor={keyExtractor}
         data={chatList}

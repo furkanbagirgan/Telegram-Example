@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding:25
+    padding: 25,
   },
   darkContainer: {
     flex: 1,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding:25
+    padding: 25,
   },
 });
 

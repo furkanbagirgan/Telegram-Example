@@ -1,15 +1,15 @@
 import React from 'react';
-import {SafeAreaView,FlatList,View} from 'react-native';
+import {SafeAreaView, FlatList, View} from 'react-native';
 
-import { useUser } from '../../contexts/UserContext';
-import { useTheme } from '../../contexts/ThemeContext';
+import {useUser} from '../../contexts/UserContext';
+import {useTheme} from '../../contexts/ThemeContext';
 import styles from './Contacts.style';
 import ContactCard from '../../components/ContactCard';
 
 const Contacts = ({navigation}) => {
   //Necessary context data and states are created.
-  const {contactList}=useUser();
-  const {theme}=useTheme();
+  const {contactList} = useUser();
+  const {theme} = useTheme();
 
   const keyExtractor = item => {
     return String(item.id);
@@ -42,7 +42,8 @@ const Contacts = ({navigation}) => {
 
   //Here, the flatlist that will appear on the screen are created.
   return (
-    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
+    <SafeAreaView
+      style={theme === 'light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList
         keyExtractor={keyExtractor}
         data={contactList}

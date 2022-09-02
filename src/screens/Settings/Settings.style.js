@@ -7,16 +7,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems:'center',
-    paddingHorizontal: 25
+    alignItems: 'center',
+    paddingHorizontal: 25,
   },
   darkContainer: {
     flex: 1,
     backgroundColor: '#333',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems:'center',
-    paddingHorizontal: 25
+    alignItems: 'center',
+    paddingHorizontal: 25,
   },
   imageWrapper: {
     width: 150,
