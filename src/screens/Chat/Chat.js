@@ -6,11 +6,12 @@ import styles from './Chat.style';
 import { useUser } from '../../contexts/UserContext';
 import Input from '../../components/Input';
 import Message from '../../components/Message';
+import moment from 'moment';
 
 const Chat = ({route}) => {
   //Here, the parameters from the home screen are taken by route and assigned to the objects.
   const {receiver,type} = route.params;
-  const {currentUser,chatList}=useUser();
+  const {currentUser,chatList,setChatList}=useUser();
   const [message,setMessage]=useState('');
   const [list,setList]=useState([]);
 
@@ -20,7 +21,7 @@ const Chat = ({route}) => {
       if(value.receiver.userName===receiver.userName){
         messages={...value};
       }
-    })
+    });
     setList(messages.messageList);
   },[chatList]);
 
@@ -34,6 +35,38 @@ const Chat = ({route}) => {
   const renderItem = ({item}) => {
     return <Message message={item} />;
   };
+
+  const sendMessage=()=>{
+    if(type==='messages' || typeof list !== "undefined"){
+      console.log('heyy');
+      const newChatList=chatList.map((value,index)=>{
+        if(value.receiver.userName!==receiver.userName){
+          return value;
+        }
+        else{
+          return {
+            receiver: {firstName: receiver.firstName, lastName: receiver.lastName, userName: receiver.userName, image: receiver.image},
+            sender: currentUser.userName,
+            messageList: [
+              ...list,
+              {sender:'itself', datetime: moment().toISOString().split('.')[0], message:message},
+            ],
+          };
+        }
+      });
+      setChatList([...newChatList]);
+    }
+    else{
+      const newChat={
+        receiver: {firstName: receiver.firstName, lastName: receiver.lastName, userName: receiver.userName, image: receiver.image},
+        sender: currentUser.userName,
+        messageList: [
+          {sender:'itself', datetime: moment().toISOString().split('.')[0], message:message},
+        ],
+      };
+      setChatList([...chatList,newChat]);
+    }
+  }
 
   //Here, messages are displayed on the screen with the textInput field and flatlist at the bottom.
   return (
@@ -50,7 +83,7 @@ const Chat = ({route}) => {
           <Input placeholder='Write a message' placeholderTextColor='#8C8C8C' value={message} onChangeText={setMessage}/>
         </View>
         <View style={styles.sendButton}>
-          <Icon name="send" size={23} color="white" />
+          <Icon onPress={sendMessage} name="send" size={23} color="white" />
         </View>
       </View>
     </SafeAreaView>

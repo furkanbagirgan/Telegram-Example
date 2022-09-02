@@ -8,7 +8,7 @@ import ChatCard from '../../components/ChatCard';
 const Messages = ({navigation}) => {
   const {chatList}=useUser();
 
-  const keyExtractor = (index) => {
+  const keyExtractor = (item,index) => {
     return String(index);
   };
 
