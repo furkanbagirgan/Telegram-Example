@@ -33,7 +33,7 @@ const Navigation = () => {
             } else if (route.name === 'Messages') {
               iconName = 'wechat';
               iconSize = 35;
-            } else if (route.name === 'SettingsStack') {
+            } else if (route.name === 'Settings') {
               iconName = 'cog';
               iconSize = 30;
             }
@@ -52,45 +52,11 @@ const Navigation = () => {
         <Tab.Screen name='Contacts' component={Contacts} />
         <Tab.Screen name='Messages' component={Messages} />
         <Tab.Screen
-          name='SettingsStack'
-          component={SettingsStack}
+          name='Settings'
+          component={Settings}
           options={{headerShown: false}}
         />
       </Tab.Navigator>
-    );
-  };
-
-  const SettingsStack = () => {
-    return (
-      <Stack.Navigator>
-        <Stack.Screen
-          name='Settings'
-          component={Settings}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name='Theme'
-          component={Theme}
-          options={({route}) => ({
-            headerStyle: {backgroundColor: '#0088CC'},
-            headerTintColor: 'white',
-            headerTitle: 'Select Theme',
-            headerShadowVisible: false,
-          })}
-        />
-        <Stack.Screen
-          name='Profile'
-          component={Profile}
-          options={({route}) => ({
-            headerStyle: {backgroundColor: '#0088CC'},
-            headerTintColor: 'white',
-            headerTitle: 'Edit Profile',
-            headerShadowVisible: false,
-          })}
-        />
-      </Stack.Navigator>
     );
   };
 
@@ -134,6 +100,26 @@ const Navigation = () => {
             headerRight: () => (
               <Icon name='dots-vertical' size={25} color='white' />
             ),
+          })}
+        />
+        <Stack.Screen
+          name='Theme'
+          component={Theme}
+          options={({route}) => ({
+            headerStyle: {backgroundColor: '#0088CC'},
+            headerTintColor: 'white',
+            headerTitle: 'Select Theme',
+            headerShadowVisible: false,
+          })}
+        />
+        <Stack.Screen
+          name='Profile'
+          component={Profile}
+          options={({route}) => ({
+            headerStyle: {backgroundColor: '#0088CC'},
+            headerTintColor: 'white',
+            headerTitle: 'Edit Profile',
+            headerShadowVisible: false,
           })}
         />
       </Stack.Navigator>

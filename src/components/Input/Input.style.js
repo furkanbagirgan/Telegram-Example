@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#8C8C8C',
     backgroundColor: 'white'
   },
   input:{
