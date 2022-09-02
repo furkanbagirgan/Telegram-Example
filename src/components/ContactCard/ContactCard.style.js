@@ -26,13 +26,21 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginLeft: 10,
   },
-  receiver: {
+  lightReceiver: {
     fontWeight: 'bold',
     fontSize: 16,
     color: 'black',
   },
-  userName: {
+  lightUserName: {
     color: 'black',
+  },
+  darkReceiver: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'white',
+  },
+  darkUserName: {
+    color: 'white',
   },
 });
 

@@ -1,9 +1,13 @@
 import {Dimensions,StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  lightContainer: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  darkContainer: {
+    flex: 1,
+    backgroundColor: '#333',
   },
   divider: {
     width: Dimensions.get('screen').width - 94,

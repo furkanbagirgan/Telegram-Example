@@ -5,21 +5,24 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './Settings.style';
 import Button from '../../components/Button';
 import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Settings = ({navigation}) => {
   const {setCurrentUser}=useUser();
+  const {theme}=useTheme();
 
-  const theme=()=>{
+  const goTheme=()=>{
     navigation.navigate('Theme');
   }
 
-  const editProfile=()=>{
+  const goEditProfile=()=>{
     navigation.navigate('Profile');
   }
 
   const logOut=async()=>{
     try {
       await AsyncStorage.removeItem('@userValue');
+      await AsyncStorage.removeItem('@themeValue');
       setCurrentUser({});
     } catch (error) {
       console.log('Storage Write Error');
@@ -27,12 +30,12 @@ const Settings = ({navigation}) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <View style={styles.imageWrapper}>
         <Image source={{uri: 'https://picsum.photos/id/1010/150'}} style={styles.image}/>
       </View>
-      <Button title='Theme' onClick={theme}/>
-      <Button title='Edit profile' onClick={editProfile}/>
+      <Button title='Theme' onClick={goTheme}/>
+      <Button title='Edit profile' onClick={goEditProfile}/>
       <Button title='Log out' onClick={logOut}/>
     </SafeAreaView>
   );

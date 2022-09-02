@@ -4,7 +4,7 @@ import {View, Image, Text, TouchableHighlight} from 'react-native';
 
 import styles from './ChatCard.style';
 
-const ChatCard = ({name, image, lastMessage, handlePress}) => {
+const ChatCard = ({name, image, lastMessage, handlePress, theme}) => {
   //Here, the location is entered into the moment library to display the dates and times in different formats.
   moment.locale('tr');
 
@@ -18,14 +18,14 @@ const ChatCard = ({name, image, lastMessage, handlePress}) => {
         </View>
         <View style={styles.chatWrapper}>
           <View style={styles.receiverWrapper}>
-            <Text style={styles.receiver}>{name}</Text>
-            <Text style={styles.date}>
+            <Text style={theme==='light' ? styles.lightReceiver : styles.darkReceiver}>{name}</Text>
+            <Text style={theme==='light' ? styles.lightDate : styles.darkDate}>
               {moment().day() === moment(lastMessage.datetime).day()
                 ? moment(lastMessage.datetime).format('hh:mm')
                 : moment(lastMessage.datetime).format('DD/MM/YYYY')}
             </Text>
           </View>
-          <Text style={styles.message}>
+          <Text style={theme==='light' ? styles.lightMessage : styles.darkMessage}>
             {lastMessage.sender === 'itself'
               ? 'Ben:' + lastMessage.message
               : lastMessage.message}

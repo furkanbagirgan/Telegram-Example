@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './Chat.style';
 import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import Input from '../../components/Input';
 import Message from '../../components/Message';
 import moment from 'moment';
@@ -12,6 +13,7 @@ const Chat = ({route}) => {
   //Here, the parameters from the home screen are taken by route and assigned to the objects.
   const {receiver,type} = route.params;
   const {currentUser,chatList,setChatList}=useUser();
+  const {theme}=useTheme();
   const [message,setMessage]=useState('');
   const [list,setList]=useState([]);
 
@@ -70,7 +72,7 @@ const Chat = ({route}) => {
 
   //Here, messages are displayed on the screen with the textInput field and flatlist at the bottom.
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList
         keyExtractor={keyExtractor}
         data={list}
@@ -80,7 +82,7 @@ const Chat = ({route}) => {
       />
       <View style={styles.bottomContainer}>
         <View style={styles.textInput}>
-          <Input placeholder='Write a message' placeholderTextColor='#8C8C8C' value={message} onChangeText={setMessage}/>
+          <Input placeholder='Write a message' theme={theme} placeholderTextColor='#8C8C8C' value={message} onChangeText={setMessage}/>
         </View>
         <View style={styles.sendButton}>
           <Icon onPress={sendMessage} name="send" size={23} color="white" />

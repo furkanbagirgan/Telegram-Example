@@ -1,9 +1,17 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  lightContainer: {
     flex: 1,
     backgroundColor: 'white',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems:'center',
+    paddingHorizontal: 25
+  },
+  darkContainer: {
+    flex: 1,
+    backgroundColor: '#333',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems:'center',

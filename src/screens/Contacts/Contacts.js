@@ -1,12 +1,14 @@
 import React from 'react';
 import {SafeAreaView,FlatList,View} from 'react-native';
-import { useUser } from '../../contexts/UserContext';
 
+import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import styles from './Contacts.style';
 import ContactCard from '../../components/ContactCard';
 
 const Contacts = ({navigation}) => {
   const {contactList}=useUser();
+  const {theme}=useTheme();
 
   const keyExtractor = item => {
     return String(item.id);
@@ -22,6 +24,7 @@ const Contacts = ({navigation}) => {
         image={item.image}
         userName={item.userName}
         handlePress={() => goToChatDetail(item, name, 'contacts')}
+        theme={theme}
       />
     );
   };
@@ -38,7 +41,7 @@ const Contacts = ({navigation}) => {
 
   //Here, the tabBar component and flatlist that will appear on the screen are created.
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList
         keyExtractor={keyExtractor}
         data={contactList}

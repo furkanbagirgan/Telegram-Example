@@ -1,12 +1,14 @@
 import React from 'react';
 import {SafeAreaView,FlatList,View} from 'react-native';
-import { useUser } from '../../contexts/UserContext';
 
+import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import styles from './Messages.style';
 import ChatCard from '../../components/ChatCard';
 
 const Messages = ({navigation}) => {
   const {chatList}=useUser();
+  const {theme}=useTheme();
 
   const keyExtractor = (item,index) => {
     return String(index);
@@ -22,6 +24,7 @@ const Messages = ({navigation}) => {
         image={item.receiver.image}
         lastMessage={item.messageList[item.messageList.length - 1]}
         handlePress={() => goToChatDetail(item.receiver, name, 'messages')}
+        theme={theme}
       />
     );
   };
@@ -38,7 +41,7 @@ const Messages = ({navigation}) => {
 
   //Here, the tabBar component and flatlist that will appear on the screen are created.
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <FlatList
         keyExtractor={keyExtractor}
         data={chatList}

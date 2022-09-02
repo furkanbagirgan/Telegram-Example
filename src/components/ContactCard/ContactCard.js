@@ -4,7 +4,7 @@ import {View, Image, Text, TouchableHighlight} from 'react-native';
 
 import styles from './ContactCard.style';
 
-const ContactCard = ({name, image, userName, handlePress}) => {
+const ContactCard = ({name, image, userName, handlePress, theme}) => {
   //Here, the location is entered into the moment library to display the dates and times in different formats.
   moment.locale('tr');
 
@@ -17,8 +17,8 @@ const ContactCard = ({name, image, userName, handlePress}) => {
           <Image source={{uri: image}} style={styles.image} />
         </View>
         <View style={styles.chatWrapper}>
-          <Text style={styles.receiver}>{name}</Text>
-          <Text style={styles.userName}>{'@'+userName}</Text>
+          <Text style={theme==='light' ? styles.lightReceiver : styles.darkReceiver}>{name}</Text>
+          <Text style={theme==='light' ? styles.lightUserName : styles.darkUserName}>{'@'+userName}</Text>
         </View>
       </View>
     </TouchableHighlight>

@@ -1,9 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  lightContainer: {
     flex: 1,
     backgroundColor: '#ebe5de',
+    paddingTop: 15,
+  },
+  darkContainer: {
+    flex: 1,
+    backgroundColor: '#333',
     paddingTop: 15,
   },
   bottomContainer: {

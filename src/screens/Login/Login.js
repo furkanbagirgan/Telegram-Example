@@ -8,6 +8,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import CountryCodes from '../../CountryCodes.json';
 import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Login = () => {
   const [selectedPhoneCode, setSelectedPhoneCode] = useState('+90');
@@ -16,6 +17,7 @@ const Login = () => {
   const [lastName,setLastName]=useState('');
   const [userName,setUserName]=useState('');
   const {setCurrentUser} = useUser();
+  const {theme}=useTheme();
 
   const login= async ()=>{
     try {
@@ -26,6 +28,7 @@ const Login = () => {
         userName,
       });
       await AsyncStorage.setItem('@userValue', userValue);
+      await AsyncStorage.setItem('@themeValue', JSON.stringify('light'));
       setCurrentUser({
         phoneNumber:selectedPhoneCode+phoneNumber,
         firstName,
@@ -38,10 +41,10 @@ const Login = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <Text style={styles.header}>Telegram</Text>
       <View style={styles.rowContent}>
-        <View style={styles.pickerWrapper}>
+        <View style={theme==='light' ? styles.lightPickerWrapper : styles.darkPickerWrapper}>
           <Picker
             selectedValue={selectedPhoneCode}
             style={styles.picker}
@@ -55,12 +58,12 @@ const Login = () => {
           </Picker>
         </View>
         <View style={styles.phoneWrapper}>
-          <Input placeholder='Phone Number' placeholderTextColor='#8C8C8C' value={phoneNumber} iconName='phone' onChangeText={setPhoneNumber} keyboardType='numeric'/>
+          <Input placeholder='Phone Number' theme={theme} placeholderTextColor='#8C8C8C' value={phoneNumber} iconName='phone' onChangeText={setPhoneNumber} keyboardType='numeric'/>
         </View>
       </View>
-      <Input placeholder='First Name' placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
-      <Input placeholder='Last Name' placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
-      <Input placeholder='User Name' placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
+      <Input placeholder='First Name' theme={theme} placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
+      <Input placeholder='Last Name' theme={theme} placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
+      <Input placeholder='User Name' theme={theme} placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
       <Button title='Giriş Yap' onClick={login}/>
     </SafeAreaView>
   );

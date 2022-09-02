@@ -32,17 +32,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  receiver: {
+  lightReceiver: {
     fontWeight: 'bold',
     fontSize: 16,
     color: 'black',
   },
-  date: {
+  lightDate: {
     fontSize: 12,
     color: 'gray',
   },
-  message: {
+  lightMessage: {
     color: 'black',
+  },
+  darkReceiver: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'white',
+  },
+  darkDate: {
+    fontSize: 12,
+    color: '#eee',
+  },
+  darkMessage: {
+    color: 'white',
   },
 });
 

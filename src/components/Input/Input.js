@@ -6,7 +6,7 @@ import styles from './Input.style';
 
 function Input(props) {
   return (
-    <View style={styles.container}>
+    <View style={props.theme==='light' ? styles.lightContainer : styles.darkContainer}>
       <Icon name={props.iconName} size={20} color='#8C8C8C'/>
       <TextInput {...props} style={styles.input} />
     </View>

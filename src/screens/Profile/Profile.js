@@ -6,9 +6,11 @@ import styles from './Profile.style';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useUser } from '../../contexts/UserContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Profile = () => {
   const {currentUser,setCurrentUser} = useUser();
+  const {theme}=useTheme();
   const [firstName,setFirstName]=useState(currentUser.firstName);
   const [lastName,setLastName]=useState(currentUser.lastName);
   const [userName,setUserName]=useState(currentUser.userName);
@@ -34,10 +36,10 @@ const Profile = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Input placeholder='First Name' placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
-      <Input placeholder='Last Name' placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
-      <Input placeholder='User Name' placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
+    <SafeAreaView style={theme==='light' ? styles.lightContainer : styles.darkContainer}>
+      <Input placeholder='First Name' theme={theme} placeholderTextColor='#8C8C8C' value={firstName} iconName='account-details' onChangeText={setFirstName}/>
+      <Input placeholder='Last Name' theme={theme} placeholderTextColor='#8C8C8C' value={lastName} iconName='account-details' onChangeText={setLastName}/>
+      <Input placeholder='User Name' theme={theme} placeholderTextColor='#8C8C8C' value={userName} iconName='account-box' onChangeText={setUserName}/>
       <Button title='Save' onClick={save}/>
     </SafeAreaView>
   );
