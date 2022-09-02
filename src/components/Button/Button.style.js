@@ -9,6 +9,8 @@ const styles=StyleSheet.create({
     alignItems: 'center',
     marginVertical: 20,
     borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#8C8C8C',
     backgroundColor: 'white',
   },
   title:{
