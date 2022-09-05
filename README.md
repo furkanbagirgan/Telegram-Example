@@ -1,4 +1,4 @@
-# Assignment-3
+# Telegram Example
 In this assignment, an application with user login and messaging was developed by taking the telegram application as an example. The user logs into the application with his/her phone number, name, surname and user name. In the application, there are contacts that the user can message on the contacts screen. The list of these people is stored on the context as mock data. In addition, there are people with whom he has messaged before on the messages screen. The information here is kept dynamically on the context over the messages sent by the user. The user can change the application theme and user information from the settings screen and can log out if desired.
 
 ## Used technologies
@@ -6,6 +6,7 @@ In this assignment, an application with user login and messaging was developed b
 - React Native Navigation
 - React Native Vector Icons
 - React Native Picker
+- React Native AsyncStorage
 - React Native Moment
 
 ## Screens
@@ -37,7 +38,7 @@ In this assignment, an application with user login and messaging was developed b
 ## Installation
 1.Clone Project
 ```
-git clone https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-3-furkanbagirgan.git
+git clone https://github.com/furkanbagirgan/Telegram-Example.git
 ```
 2.Install the Necessary Packages for Project
 ```
